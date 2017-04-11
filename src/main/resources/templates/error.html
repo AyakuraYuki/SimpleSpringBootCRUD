@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>错误</title>
+</head>
+<body>
+<div align="center">
+    <p>
+        对不起
+        <!--/*@thymesVar id="username" type="java.lang.String"*/-->
+        <span th:text="${username}"></span>
+        ，您的登录信息有误。
+    </p>
+</div>
+</body>
+</html>

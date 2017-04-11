@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.yuki.dao.UserDao">
+
+    <sql id="column">
+        a.id as "id",
+        a.username as "username",
+        a.password as "password",
+        a.del_flag as "del_flag"
+    </sql>
+
+    <select id="get" resultType="me.yuki.po.User">
+        SELECT
+        <include refid="column"/>
+        FROM sys_user a
+        WHERE a.del_flag = '0' a.id = #{id}
+    </select>
+
+    <select id="findUserByName" parameterType="java.lang.String" resultType="me.yuki.po.User">
+        SELECT
+        <include refid="column"/>
+        FROM sys_user a
+        WHERE a.del_flag = '0' a.username = #{username}
+    </select>
+
+    <select id="findList" parameterType="me.yuki.po.User" resultType="me.yuki.po.User">
+        SELECT
+        <include refid="column"/>
+        FROM sys_user a
+        <where>
+            a.del_flag = '0'
+            <if test="username != null and username != ''">
+                AND a.username LIKE '$#{username}$'
+            </if>
+        </where>
+        <choose>
+            <otherwise>
+                ORDER BY a.username ASC
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="findAll" resultType="me.yuki.po.User">
+        SELECT
+        <include refid="column"/>
+        FROM sys_user a
+        WHERE a.del_flag = '0'
+        <choose>
+            <otherwise>
+                ORDER BY a.username ASC
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert" parameterType="me.yuki.po.User">
+        INSERT INTO sys_user (id, username, password, del_flag)
+        VALUES (#{id},#{username},#{password},'0')
+    </insert>
+
+    <update id="update" parameterType="me.yuki.po.User">
+        UPDATE sys_user SET
+        id = #{id},
+        username = #{username}
+        WHERE id = #{id}
+    </update>
+
+    <update id="delete" parameterType="me.yuki.po.User">
+        UPDATE sys_user SET
+        del_flag = '1'
+        WHERE id = #{id}
+    </update>
+
+    <update id="changePassword" parameterType="me.yuki.po.User">
+        UPDATE sys_user SET
+        password = #{password}
+        WHERE id = #{id}
+    </update>
+
+    <select id="loginAuthorization" resultType="me.yuki.po.User">
+        SELECT
+        <include refid="column"/>
+        FROM sys_user a
+        WHERE a.del_flag = '0' AND a.username = #{username} AND a.password = #{password}
+    </select>
+
+</mapper>

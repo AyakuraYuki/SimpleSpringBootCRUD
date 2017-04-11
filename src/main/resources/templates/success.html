@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>成功</title>
+</head>
+<body>
+<!--/*@thymesVar id="user" type="me.yuki.po.User"*/-->
+<div align="center" th:object="${user}">
+    <p>
+        您好<span th:text="*{username}"></span>，登录成功！
+    </p>
+</div>
+</body>
+</html>
