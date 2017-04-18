@@ -10,6 +10,9 @@
     <p>
         您好<span th:text="*{username}"></span>，登录成功！
     </p>
+    <p>
+        <a th:href="@{/auth/logout}" th:text="登出"></a>
+    </p>
 </div>
 </body>
 </html>
