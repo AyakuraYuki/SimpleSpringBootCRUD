@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8" />
     <title>登录</title>
 </head>
 <body>
-    <div align="center">
-        <form th:form="login" th:action="login" th:method="post">
-
-        </form>
-    </div>
+<div align="center">
+    <form form="login" th:action="@{/auth/login}" method="post">
+        <!--/*@thymesVar id="user" type="me.yuki.po.User"*/-->
+        用户名：<input type="text" name="username" /><br />
+        密码：<input type="password" name="password" /><br />
+        <input type="submit" value="登录" />
+    </form>
+</div>
 </body>
 </html>

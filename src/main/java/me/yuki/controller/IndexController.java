@@ -13,11 +13,16 @@ import java.util.Date;
 @Controller
 public class IndexController {
 
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	String index(Model model) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		model.addAttribute("welcome", "Now " + sdf.format(new Date()));
 		return "index";
+	}
+
+	@RequestMapping("/")
+	String login() {
+		return "login";
 	}
 
 }
