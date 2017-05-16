@@ -1,5 +1,6 @@
 # System configuration ========================================================= #
 server:
+  display-name: CRUD
   port: 8888
 
 # Datasource & Thymeleaf configuration ================================================ #

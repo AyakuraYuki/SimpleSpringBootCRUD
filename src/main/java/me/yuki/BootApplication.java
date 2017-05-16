@@ -1,6 +1,5 @@
 package me.yuki;
 
-import me.yuki.utils.PasswordUtil;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -26,11 +25,11 @@ public class BootApplication {
 
 	@Bean
 	public SqlSessionFactory getSqlSessionFactory() throws Exception {
-		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-		sqlSessionFactoryBean.setDataSource(getDataSource());
+		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+		sqlSessionFactory.setDataSource(getDataSource());
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("/mapper/*.xml"));
-		return sqlSessionFactoryBean.getObject();
+		sqlSessionFactory.setMapperLocations(resolver.getResources("/mapper/*.xml"));
+		return sqlSessionFactory.getObject();
 	}
 
 	@Bean
