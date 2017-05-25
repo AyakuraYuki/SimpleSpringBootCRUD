@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>me.yuki</groupId>
     <artifactId>springbootcrud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-
     <name>springbootcrud</name>
     <description>CRUD project for Spring Boot</description>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>jboss</id>
+            <name>jboss maven</name>
+            <url>http://repository.jboss.com/nexus/content/repositories/root_repository/maven2/</url>
+        </repository>
+        <repository>
+            <id>spring</id>
+            <name>Spring Framework Release</name>
+            <url>http://maven.springframework.org/release/</url>
+        </repository>
+    </repositories>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -123,5 +140,18 @@
             </plugin>
         </plugins>
     </build>
+
+    <developers>
+        <developer>
+            <name>Ayakura Yuki</name>
+            <organization>Beijing Normal University Zhuhai</organization>
+            <email>AyakuraYuki@users.noreply.github.com</email>
+            <url>https://ayakurayuki.github.io/</url>
+            <roles>
+                <role>Owner</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
 
 </project>

@@ -28,7 +28,7 @@ public class BootApplication {
 		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
 		sqlSessionFactory.setDataSource(getDataSource());
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-		sqlSessionFactory.setMapperLocations(resolver.getResources("/mapper/*.xml"));
+		sqlSessionFactory.setMapperLocations(resolver.getResources("/mapping/*.xml"));
 		return sqlSessionFactory.getObject();
 	}
 
